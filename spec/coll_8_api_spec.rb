@@ -5,7 +5,7 @@ RSpec.describe Coll8Api do
     expect(Coll8Api::VERSION).not_to be nil
   end
 
-  it 'work' do
+  it 'works' do
     expect(true).to eq(true)
   end
 end
