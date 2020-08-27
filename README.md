@@ -26,9 +26,9 @@ Or install it yourself as:
     config.base_url = ENV["COLL_8_BASE_URL"]
     config.client_id = ENV["COLL_8_CLIENT_ID"]
     config.client_secret = ENV["COLL_8_CLIENT_SECRET"]
+    config.account = ENV["COLL_8_ACCOUNT"]
 
     config.logger = Logger.new(STDERR)
-    config.level = :debug
   end
 ```
 
