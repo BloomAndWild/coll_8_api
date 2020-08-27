@@ -21,6 +21,7 @@ VCR.configure do |c|
       match.captures.first
     end
   end
+  # TODO: Client data not being obscured. Needs fixing
   c.filter_sensitive_data('<CLIENT_ID>') do |interaction|
     interaction.request.body.match(/"client_id":"[\w-]+"/)&.captures&.first
   end
