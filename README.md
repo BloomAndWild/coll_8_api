@@ -1,15 +1,13 @@
 # Coll8Api
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/coll_8_api`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Ruby wrapper for Coll-8 API
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'coll_8_api'
+gem 'coll_8_api', branch: 'master', github: 'BloomAndWild/coll_8_api'
 ```
 
 And then execute:
@@ -22,7 +20,17 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+## Configure client
+```
+  Coll8Api::Client.configure do |config|
+    config.base_url = ENV["COLL_8_BASE_URL"]
+    config.client_id = ENV["COLL_8_CLIENT_ID"]
+    config.client_secret = ENV["COLL_8_CLIENT_SECRET"]
+
+    config.logger = Logger.new(STDERR)
+    config.level = :debug
+  end
+```
 
 ## Development
 
