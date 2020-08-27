@@ -2,17 +2,15 @@
 
 require 'logger'
 
-def configure_client(base_url: nil, username: nil, password: nil)
-  if ENV["COLL_8_CLIENT_ID"].nil? && ENV["COLL_8_CLIENT_SECRET"].nil?
-    fail "COLL_8_CLIENT_ID and COLL_8_CLIENT_SECRET environment variables not set"
-  end
-
+def configure_client(base_url: nil, client_id: nil, client_secret: nil, account: nil)
   Coll8Api::Client.configure do |config|
-    config.base_url = ENV["COLL_8_BASE_URL"]
-    config.client_id = ENV["COLL_8_CLIENT_ID"]
-    config.client_secret = ENV["COLL_8_CLIENT_SECRET"]
-    config.account = ENV["COLL_8_ACCOUNT"]
+    config.base_url = base_url || ENV.fetch('COLL_8_BASE_URL')
+    config.client_id = client_id || ENV.fetch('COLL_8_CLIENT_ID')
+    config.client_secret = client_secret || ENV.fetch('COLL_8_CLIENT_SECRET')
+    config.account = account || ENV.fetch('COLL_8_ACCOUNT')
 
-    config.logger = Logger.new(STDERR)
+    logger = Logger.new(STDERR)
+    logger.level = :debug
+    config.logger = logger
   end
 end

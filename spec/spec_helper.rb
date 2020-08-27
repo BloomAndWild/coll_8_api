@@ -7,6 +7,8 @@ require 'coll_8_api'
 
 require_relative 'support/helpers/client_helper'
 
+Dotenv.load
+
 VCR.configure do |c|
   c.hook_into :webmock
   c.configure_rspec_metadata!
