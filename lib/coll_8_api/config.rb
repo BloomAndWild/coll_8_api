@@ -2,6 +2,6 @@
 
 module Coll8Api
   class Config
-    attr_accessor :base_url, :client_id, :client_secret, :logger
+    attr_accessor :base_url, :client_id, :client_secret, :account, :logger
   end
 end
