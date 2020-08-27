@@ -28,7 +28,7 @@ module Coll8Api
     protected
 
     def http_method
-      options[:http_method]
+      :post
     end
 
     def service
