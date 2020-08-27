@@ -1,5 +1,7 @@
 # frozen_string_literal: true
-
+#
+# POST {{ base_url }}/api/shipment/
+#
 module Coll8Api
   module Operations
     class CreateShipment < Operation
