@@ -2,7 +2,6 @@
 
 module Coll8Api
   class Operation
-
     DEFAULT_HEADERS = {
       content_type: 'application/json'
     }.freeze

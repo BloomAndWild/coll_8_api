@@ -17,7 +17,7 @@ RSpec.describe Coll8Api::Operation do
     context 'with invalid token' do
       let(:options) do
         {
-          token: "Some-nonsense",
+          token: 'Some-nonsense',
           http_method: :post,
           payload: {}
         }
