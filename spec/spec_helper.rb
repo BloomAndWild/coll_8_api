@@ -12,23 +12,19 @@ Dotenv.load
 VCR.configure do |c|
   c.hook_into :webmock
   c.configure_rspec_metadata!
-  c.ignore_localhost                        = true
-  c.cassette_library_dir                    = 'spec/support/fixtures/vcr_cassettes'
+  c.ignore_localhost = true
+  c.cassette_library_dir = 'spec/support/fixtures/vcr_cassettes'
   c.allow_http_connections_when_no_cassette = true
-  c.default_cassette_options                = { match_requests_on: [:uri] }
-  # Filtering Basic auth credentials from VCR interaction.
-  c.filter_sensitive_data('<BASIC_AUTH_CREDENTIALS>') do |interaction|
+  c.default_cassette_options = { match_requests_on: [:uri] }
+  # Filter senstive test credentials from VCR interaction.
+  c.filter_sensitive_data('<CLIENT_ID>') { ENV['COLL_8_CLIENT_ID'] }
+  c.filter_sensitive_data('<CLIENT_SECRET>') { ENV['COLL_8_CLIENT_SECRET'] }
+  c.filter_sensitive_data('<ACCOUNT_REF>') { ENV['COLL_8_ACCOUNT'] }
+  c.filter_sensitive_data('<BEARER_TOKEN>') do |interaction|
     auths = interaction.request.headers['Authorization']&.first
-    if (match = auths&.match /^Basic\s+([^,\s]+)/)
+    if (match = auths&.match /^Bearer\s+([^,\s]+)/)
       match.captures.first
     end
-  end
-  # TODO: Client data not being obscured. Needs fixing
-  c.filter_sensitive_data('<CLIENT_ID>') do |interaction|
-    interaction.request.body.match(/"client_id":"[\w-]+"/)&.captures&.first
-  end
-  c.filter_sensitive_data('<CLIENT_SECRET>') do |interaction|
-    interaction.request.body.match(/"client_id":"[\w-]+"/)&.captures&.first
   end
 end
 

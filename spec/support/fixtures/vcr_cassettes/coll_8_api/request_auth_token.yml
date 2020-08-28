@@ -5,7 +5,7 @@ http_interactions:
     uri: https://coll-8-dev.eu.auth0.com/oauth/token
     body:
       encoding: UTF-8
-      string: '{"client_id":"xRs2T5zms2m3RRCTphvIHK4T1dbdyAnZ","client_secret":"vQYLodn8FteH2_ZldZkt8-2jofnbJgSkpOI7bmsEYvD18bSpffkm_zZmwynHys-E","audience":"https://api.drop2shop.ie","grant_type":"client_credentials"}'
+      string: '{"client_id":"<CLIENT_ID>","client_secret":"<CLIENT_SECRET>","audience":"https://api.drop2shop.ie","grant_type":"client_credentials"}'
     headers:
       User-Agent:
       - Faraday v1.0.1
@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 27 Aug 2020 10:11:41 GMT
+      - Fri, 28 Aug 2020 08:38:56 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -29,19 +29,19 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cf_bm=b3c8223a1ea933454d2602fb69ca3ad1e1ddcd10-1598523101-1800-AScZpUqxqjWHQGHmBGqBg1qHsqFaaaPajkktpfF+BXm5I2Leed3MNZNBA0+0NKoh/TxPUo1mlJ20YPcCWiGLWiY=;
-        path=/; expires=Thu, 27-Aug-20 10:41:41 GMT; domain=.eu.auth0.com; HttpOnly;
+      - __cf_bm=86e4f65455303228fd3f91d62bf7b38b3116a981-1598603936-1800-AQEby9KO6TgyBchbpaYO/fENX7dLWwbtSdYW+YF2GcF48+iLYRHvY1wSiSl3yUZXis1Pc3Qa+t9E4I282ZBSMOI=;
+        path=/; expires=Fri, 28-Aug-20 09:08:56 GMT; domain=.eu.auth0.com; HttpOnly;
         Secure; SameSite=None
-      - __cfduid=d21e24dca91d170ce5deb89aa03ad8f2d1598523101; expires=Sat, 26-Sep-20
-        10:11:41 GMT; path=/; domain=.eu.auth0.com; HttpOnly; SameSite=Lax; Secure
-      - did=s%3Av0%3Ab3f97f60-e84d-11ea-a664-996302ef45c9.9bxHpSjiqPT0uTY%2BGxpmedgVlq0JMfBL0AypNAwN%2Fec;
-        Max-Age=31557600; Path=/; Expires=Fri, 27 Aug 2021 16:11:41 GMT; HttpOnly;
+      - __cfduid=d69ddeef686cee9eb2aec74bb40c2a37d1598603936; expires=Sun, 27-Sep-20
+        08:38:56 GMT; path=/; domain=.eu.auth0.com; HttpOnly; SameSite=Lax; Secure
+      - did=s%3Av0%3Ae91beb80-e909-11ea-8c5e-6b2fa625841d.tnRqPcmQYc9YTTY7YfSblmdyDo8DeCaLOmzV9gAqNYU;
+        Max-Age=31557600; Path=/; Expires=Sat, 28 Aug 2021 14:38:56 GMT; HttpOnly;
         Secure; SameSite=None
-      - did_compat=s%3Av0%3Ab3f97f60-e84d-11ea-a664-996302ef45c9.9bxHpSjiqPT0uTY%2BGxpmedgVlq0JMfBL0AypNAwN%2Fec;
-        Max-Age=31557600; Path=/; Expires=Fri, 27 Aug 2021 16:11:41 GMT; HttpOnly;
+      - did_compat=s%3Av0%3Ae91beb80-e909-11ea-8c5e-6b2fa625841d.tnRqPcmQYc9YTTY7YfSblmdyDo8DeCaLOmzV9gAqNYU;
+        Max-Age=31557600; Path=/; Expires=Sat, 28 Aug 2021 14:38:56 GMT; HttpOnly;
         Secure
       Cf-Ray:
-      - 5c950289ddbe070a-LHR
+      - 5c9cb809bf53ce23-LHR
       Cache-Control:
       - no-store
       Strict-Transport-Security:
@@ -51,21 +51,21 @@ http_interactions:
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - 04d0ffea270000070af38ff200000001
+      - 04d5d15a0f0000ce23078ab200000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Ot-Baggage-Auth0-Request-Id:
-      - 5c950289ddbe070a
+      - 5c9cb809bf53ce23
       Ot-Tracer-Sampled:
       - 'true'
       Ot-Tracer-Spanid:
-      - '0353334835232641'
+      - 28e0bda11bf23b1b
       Ot-Tracer-Traceid:
-      - 161430ce56bb75b4
+      - 536c4a5e524f7786
       Pragma:
       - no-cache
       X-Auth0-Requestid:
-      - 45e77acb4548218d7797
+      - 46ff4af706b4c54a62db
       X-Content-Type-Options:
       - nosniff
       X-Ratelimit-Limit:
@@ -73,13 +73,13 @@ http_interactions:
       X-Ratelimit-Remaining:
       - '999999'
       X-Ratelimit-Reset:
-      - '1598523102'
+      - '1598603937'
       Server:
       - cloudflare
       Alt-Svc:
       - h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik1UazNPREF6TkRRelJqUXpOamRFTkVaQk9UazRORFJCTnpVeU56RkRSVUkwTTBJMk56STJSZyJ9.eyJpc3MiOiJodHRwczovL2NvbGwtOC1kZXYuZXUuYXV0aDAuY29tLyIsInN1YiI6InhSczJUNXptczJtM1JSQ1RwaHZJSEs0VDFkYmR5QW5aQGNsaWVudHMiLCJhdWQiOiJodHRwczovL2FwaS5kcm9wMnNob3AuaWUiLCJpYXQiOjE1OTg1MjMxMDEsImV4cCI6MTU5ODYwOTUwMSwiYXpwIjoieFJzMlQ1em1zMm0zUlJDVHBodklISzRUMWRiZHlBbloiLCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMiLCJwZXJtaXNzaW9ucyI6W119.n7kP05_OfkfOSKVP7rtov7_fdEFprKQTfuQmsuHq2k1O7NZu-a5V9xmLrkYr145pKqgsfY7w_mFct4sf0-xdL6ZpM5mIEUQV2iQoiHdSD4Bug2T70VPNlHonUAd3DIQF4P1rVYkVOgMf-q6Mq4LkA1N1nKbQmGa1gLdb9rh7_GdNbG9dLMtsjWYoMiDrzwdEedp6cBKcZDopuIncUn_Q5_VeOeSaVO5YOFVN0tgsGZpeQBJAqLMs_enVUOTU_RZkLQSxtZQ4TWXmiyg85tt6VeWf9-ZQb2oi52Xs8WYqXxPRnFzRzKtl3QeanZxOTHOnfO2awSmTeF05gUnuzCq1QQ","expires_in":86400,"token_type":"Bearer"}'
-  recorded_at: Thu, 27 Aug 2020 10:11:41 GMT
+      string: '{"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik1UazNPREF6TkRRelJqUXpOamRFTkVaQk9UazRORFJCTnpVeU56RkRSVUkwTTBJMk56STJSZyJ9.eyJpc3MiOiJodHRwczovL2NvbGwtOC1kZXYuZXUuYXV0aDAuY29tLyIsInN1YiI6InhSczJUNXptczJtM1JSQ1RwaHZJSEs0VDFkYmR5QW5aQGNsaWVudHMiLCJhdWQiOiJodHRwczovL2FwaS5kcm9wMnNob3AuaWUiLCJpYXQiOjE1OTg2MDM5MzYsImV4cCI6MTU5ODY5MDMzNiwiYXpwIjoieFJzMlQ1em1zMm0zUlJDVHBodklISzRUMWRiZHlBbloiLCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMiLCJwZXJtaXNzaW9ucyI6W119.Jvd4G7AAQCfJ82ttHHxedNgiqug3x4QoPdGckip8v28Gkbp1lxQvqMmgYK7BT0OmXaSgZtPrAX9mrUMUejQb2s8QH5oiHZt1pZeDZarhJ6d6-hpqtwULnAblDudReyMdEgLAO3HxQSAqXim0h2dylHun8iDL1HuETyUBVtR5KjLpBl6sZOD3-5YejWpF_Cx9rk4wcT5plCvxyovSTUApGALEQ-BQnoPrK5GfpQ75VfqYTjQUY0PVf_CGLSW4ohKfsWg6p9p4brdrcr_1F-tWmf6UUBAxUzGIM1o2dvO0_paS_BCrvmMwF2I3EHs_Y9DY2PC9d_UDKWU9A-XbftQmTg","expires_in":86400,"token_type":"Bearer"}'
+  recorded_at: Fri, 28 Aug 2020 08:38:56 GMT
 recorded_with: VCR 6.0.0

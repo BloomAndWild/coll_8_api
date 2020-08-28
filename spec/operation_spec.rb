@@ -24,7 +24,7 @@ RSpec.describe Coll8Api::Operation do
       end
 
       it 'raises an exception' do
-        VCR.use_cassette('operation/invalid_token') do
+        VCR.use_cassette('coll_8_api/operations/invalid_token') do
           expect { default_op_class.new(**options).execute }.to raise_error(Coll8Api::Errors::ResponseError) do |err|
             expect(err.status).to eq(401)
           end

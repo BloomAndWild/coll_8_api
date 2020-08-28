@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v1.0.1
       Authorization:
-      - Bearer Some-nonsense
+      - Bearer <BEARER_TOKEN>
       Content-Type:
       - application/json
       Accept-Encoding:
@@ -33,11 +33,11 @@ http_interactions:
       Set-Cookie:
       - ARRAffinity=46924d26a156f2513346647392bff9d626b628b61fe47171e284f9ef372c58f2;Path=/;HttpOnly;Domain=ship-api-uat.drop2shop.ie
       Date:
-      - Thu, 27 Aug 2020 15:35:39 GMT
+      - Fri, 28 Aug 2020 08:14:11 GMT
       Content-Length:
       - '0'
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Thu, 27 Aug 2020 15:35:40 GMT
+  recorded_at: Fri, 28 Aug 2020 08:14:12 GMT
 recorded_with: VCR 6.0.0
