@@ -1,0 +1,81 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://coll-8-dev.eu.auth0.com/oauth/token
+    body:
+      encoding: UTF-8
+      string: '{"client_id":"bad","client_secret":"creds","audience":"https://api.drop2shop.ie","grant_type":"client_credentials"}'
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Fri, 28 Aug 2020 09:47:03 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '60'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cf_bm=06de7ae93f94da1d3ef7965a4b76e9f2686f6d09-1598608023-1800-Ae0TtOIg/1xoZlXe3eDRGhQgT7Mj16X957tQqRC7wIBDmXPX5aEOTTs3N8HWbfaqA9L3YL+I70b2ASzN2QtEJnY=;
+        path=/; expires=Fri, 28-Aug-20 10:17:03 GMT; domain=.eu.auth0.com; HttpOnly;
+        Secure; SameSite=None
+      - __cfduid=dba517b64c9f1ccaaa3b33dc05ff461e81598608023; expires=Sun, 27-Sep-20
+        09:47:03 GMT; path=/; domain=.eu.auth0.com; HttpOnly; SameSite=Lax; Secure
+      - did=s%3Av0%3A6d075930-e913-11ea-bc1e-ef84ba38606e.NkMuHV0z7QTKWu5LDpb2z3oRIJe82Q2QGk0gV3Qv2k8;
+        Max-Age=31557600; Path=/; Expires=Sat, 28 Aug 2021 15:47:03 GMT; HttpOnly;
+        Secure; SameSite=None
+      - did_compat=s%3Av0%3A6d075930-e913-11ea-bc1e-ef84ba38606e.NkMuHV0z7QTKWu5LDpb2z3oRIJe82Q2QGk0gV3Qv2k8;
+        Max-Age=31557600; Path=/; Expires=Sat, 28 Aug 2021 15:47:03 GMT; HttpOnly;
+        Secure
+      Cf-Ray:
+      - 5c9d1bd02b83f3f3-LHR
+      Cache-Control:
+      - private, no-store, no-cache, must-revalidate, post-check=0, pre-check=0, no-transform
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - 04d60fb6170000f3f3b3948200000001
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Ot-Baggage-Auth0-Request-Id:
+      - 5c9d1bd02b83f3f3
+      Ot-Tracer-Sampled:
+      - 'true'
+      Ot-Tracer-Spanid:
+      - 4a617d280dc3d001
+      Ot-Tracer-Traceid:
+      - 423e524f53b2985a
+      X-Auth0-Requestid:
+      - 0232bb74f5f8787732bf
+      X-Content-Type-Options:
+      - nosniff
+      X-Ratelimit-Limit:
+      - '1000000'
+      X-Ratelimit-Remaining:
+      - '999999'
+      X-Ratelimit-Reset:
+      - '1598608024'
+      Vary:
+      - Accept-Encoding
+      Server:
+      - cloudflare
+      Alt-Svc:
+      - h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: '{"error":"access_denied","error_description":"Unauthorized"}'
+  recorded_at: Fri, 28 Aug 2020 09:47:03 GMT
+recorded_with: VCR 6.0.0

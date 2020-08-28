@@ -16,9 +16,7 @@ module Coll8Api
       private
 
       def build_message
-        return status unless body.is_a?(Hash)
-
-        body.dig(:reasons, 0, :msg) || status
+        return status
       end
     end
   end

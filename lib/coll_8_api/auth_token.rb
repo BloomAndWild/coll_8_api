@@ -22,7 +22,7 @@ module Coll8Api
 
       body = JSON.parse(response.body)
 
-      raise StandardError.new(payload: payload, body: body, status: response.status) unless response.success?
+      raise Coll8Api::Errors::ResponseError.new(payload: payload, body: body, status: response.status) unless response.success?
 
       body
     end
