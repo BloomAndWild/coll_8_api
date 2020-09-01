@@ -1,0 +1,85 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://coll-8-dev.eu.auth0.com/oauth/token
+    body:
+      encoding: UTF-8
+      string: '{"client_id":"<CLIENT_ID>","client_secret":"<CLIENT_SECRET>","audience":"https://api.drop2shop.ie","grant_type":"client_credentials"}'
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 01 Sep 2020 10:22:57 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cf_bm=26ab5f6dffc4d26d6864d03e2c2f86d638a9109f-1598955777-1800-AU3jz/aBcQqEa16qHna/gW9V9zH58DfHcuvwKBOE7ZICKaVxyD4jHcPiQo/ee0PVAj3SJwRrWjZIPeP857hD42w=;
+        path=/; expires=Tue, 01-Sep-20 10:52:57 GMT; domain=.eu.auth0.com; HttpOnly;
+        Secure; SameSite=None
+      - __cfduid=da4ff68c67c3bf1e84c998f8ee1e3319a1598955777; expires=Thu, 01-Oct-20
+        10:22:57 GMT; path=/; domain=.eu.auth0.com; HttpOnly; SameSite=Lax; Secure
+      - did=s%3Av0%3A1afb52e0-ec3d-11ea-acbb-f150f7075949.gLf1fA%2BD4T8ZDZh9ZBu3fWvMjH5d2%2FIRwi8KZoiwZOE;
+        Max-Age=31557600; Path=/; Expires=Wed, 01 Sep 2021 16:22:57 GMT; HttpOnly;
+        Secure; SameSite=None
+      - did_compat=s%3Av0%3A1afb52e0-ec3d-11ea-acbb-f150f7075949.gLf1fA%2BD4T8ZDZh9ZBu3fWvMjH5d2%2FIRwi8KZoiwZOE;
+        Max-Age=31557600; Path=/; Expires=Wed, 01 Sep 2021 16:22:57 GMT; HttpOnly;
+        Secure
+      Cf-Ray:
+      - 5cbe45eaddf86a47-LHR
+      Cache-Control:
+      - no-store
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Accept-Encoding
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - 04eaca06c200006a47df88f200000001
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Ot-Baggage-Auth0-Request-Id:
+      - 5cbe45eaddf86a47
+      Ot-Tracer-Sampled:
+      - 'true'
+      Ot-Tracer-Spanid:
+      - 3246c49765d89adb
+      Ot-Tracer-Traceid:
+      - 4a30509d4a28c143
+      Pragma:
+      - no-cache
+      X-Auth0-Requestid:
+      - a4c0cb929e76e73279ef
+      X-Content-Type-Options:
+      - nosniff
+      X-Ratelimit-Limit:
+      - '1000000'
+      X-Ratelimit-Remaining:
+      - '999999'
+      X-Ratelimit-Reset:
+      - '1598955778'
+      Server:
+      - cloudflare
+      Alt-Svc:
+      - h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik1UazNPREF6TkRRelJqUXpOamRFTkVaQk9UazRORFJCTnpVeU56RkRSVUkwTTBJMk56STJSZyJ9.eyJpc3MiOiJodHRwczovL2NvbGwtOC1kZXYuZXUuYXV0aDAuY29tLyIsInN1YiI6InhSczJUNXptczJtM1JSQ1RwaHZJSEs0VDFkYmR5QW5aQGNsaWVudHMiLCJhdWQiOiJodHRwczovL2FwaS5kcm9wMnNob3AuaWUiLCJpYXQiOjE1OTg5NTU3NzcsImV4cCI6MTU5OTA0MjE3NywiYXpwIjoieFJzMlQ1em1zMm0zUlJDVHBodklISzRUMWRiZHlBbloiLCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMiLCJwZXJtaXNzaW9ucyI6W119.dLfqqoZNCSnDsL9n_HZxWAZZthi5X5XJf-ZNbYlEFKxd1KvNdtz7roOXooLiFbUYWj3AvgmCVRejj4I94tCPlu0ao7QN5G00wVQ8rYUehs9eQtbTDYVWB8Q8f_wfekFtyeGMQCQ7I7Ps3hcv98Fzbkz_t-SVYfufAw-8YvYAloRzYvekd8ACAfO-APZZR1Ae4Cgwg4uji8kjrckhfvIT6TmI6-6p4nlWy5_BuQ2tk-Bvwt1xG4e6XnJOA8PZJW8aYI_i-OEy7wTNk_tlSVFZfzMav5eNps1rGnv2iIm9BxhW98j7dlFD0-_IcEbkxz0qWG6YWJ_e8wE36ci4oJiorg","expires_in":86400,"token_type":"Bearer"}'
+  recorded_at: Tue, 01 Sep 2020 10:22:57 GMT
+recorded_with: VCR 6.0.0

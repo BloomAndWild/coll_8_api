@@ -9,104 +9,130 @@ RSpec.describe Coll8Api::Operations::CreateShipment do
         "account": {
           "accountCode": ENV['COLL_8_ACCOUNT']
         },
-        "serviceType": "drop2shop-Return",
-        "goodsDescription": "Sample Return",
-        "shippingDate": "2020-06-30",
+        "serviceType": "drop2me",
+        "goodsDescription": "Sample Signature Required",
+        "shippingDate": "2020-09-03",
         "numberOfPackages": 1,
-        "pudoCode": "TEST0001",
-        "references": [{
-          "referenceType": "customerReference",
-          "referenceValue": "SH-RET RMA: 1000001"
-        }
+        "references": [
+          {
+            "referenceType": "customerReference",
+            "referenceValue": "SH-Me 0107-001"
+          }
         ],
-        "packages": [{
-          "packagingType": "Box",
-          "shipperTrackingNumber": "RET: 1001/0088"
-        }],
-        "signatureServices": [{
-          "service": "QRConfirmation"
-        }],
-        "addresses": [{
-          "addressLine1": "Consignee Close",
-          "city": "Raheny",
-          "postCode": "D05",
-          "state": "Dublin",
-          "country": "Ireland",
-          "addressType": "shipFrom",
-          "contact": {
-            "contactName": "consignee name",
-            "email": "consignee@receiver.com",
-            "mobileNumber": "+353870000000"
+        "packages": [
+          {
+            "packagingType": "Box",
+            "weight": 1
           }
-        }, {
-          "addressLine1": "Shippers Return Plaza",
-          "city": "London",
-          "postCode": "EC2R",
-          "countryCode": "GBR",
-          "country": "Great Britian",
-          "addressType": "shipTo",
-          "addressLocationType": "business",
-          "contact": {
-            "contactName": "shipper return contact",
-            "email": "shipper-returns@business.com",
-            "mobileNumber": "+4470000000"
+        ],
+        "signatureServices": [
+          {
+            "service": "SignatureRequired"
           }
-        }]
+        ],
+        "addresses": [
+          {
+            "addressLine1": "Shippers Lane",
+            "city": "London",
+            "postCode": "EC2R",
+            "countryCode": "GBR",
+            "country": "Great Britain",
+            "addressType": "shipFrom",
+            "addressLocationType": "business",
+            "contact": {
+              "contactName": "shipper contact",
+              "email": "shipper@business.com",
+              "mobileNumber": "+4470000000"
+            }
+          },
+          {
+            "addressLine1": "Merrion St Upper",
+            "city": "Dublin 2",
+            "postCode": "D02 R583",
+            "state": "Dublin",
+            "country": "Ireland",
+            "addressType": "shipTo",
+            "contact": {
+              "contactName": "consignee name",
+              "email": "consignee@receiver.com",
+              "mobileNumber": "+353870000000"
+            }
+          }
+        ]
       }
     end
 
     let(:subject) { described_class.new(payload: payload) }
 
-    context 'with invalid account number' do
-      let(:account) { Coll8Api::Client.config.account }
-
-      it 'returns error response body' do
-        VCR.use_cassette('create_shipment/invalid_request') do
-          result = subject.execute
-
-          expect(result).to match(
-            hash_including(
-              {
-                "isSuccess": false,
-                "errors": [
-                  {
-                    "property": "Account.AccountCode",
-                    "message": "Account does not exist in system"
-                  },
-                  {
-                    "property": "ServiceType",
-                    "message": "Unknown Service Type"
-                  },
-                  {
-                    "property": "Addresses[1].City",
-                    "message": "'City' must not be empty."
-                  }
-                ]
-              }
-            )
-          )
+    context 'with valid request' do
+      let(:expected_response) do
+        {
+          "trackingNumber": "BLWU110000000041",
+          "packageTrackingNumbers": [
+            "BLWU110000000041001"
+          ]
+        }
+      end
+      it 'returns response body' do
+        VCR.use_cassette('coll_8_api/operations/create_shipment') do
+          expect(subject.execute).to eq(expected_response)
         end
       end
     end
 
-    context 'with valid account number' do
-      let(:account) { Coll8Api::Client.config.account }
+    context 'errors' do
+      context 'with an invalid account code' do
+        let(:error_response) do
+          { :message => "You are Unauthorized to Create/Update Shipments for this Shipping Account" }.to_json
+        end
 
-      it 'returns response body' do
-        VCR.use_cassette('shipment_request/valid_request') do
-          result = subject.execute
+        before do
+          payload[:account][:accountCode] = "Blah"
+        end
 
-          expect(result).to match(
-            hash_including(
-              {
-                "isSuccess": true,
-                "trackingNumber": "DEVU110000000611",
-                "packageTrackingNumbers": [
-                  "DEVU110000000611001"
-                ]
-              }
-            )
-          )
+        it 'raises an error' do
+          VCR.use_cassette('coll_8_api/operations/invalid_account_error') do
+            expect { subject.execute }.to raise_error(Coll8Api::Errors::ResponseError) do |err|
+              expect(err.status).to eq(403)
+              expect(err.message).to eq(error_response)
+            end
+          end
+        end
+      end
+
+      context 'without a package weight' do
+        let(:error_response) do
+          { "errors": [{ "property": "Packages[0].Weight", "message": "Weight should be greater than 0 kg" }] }.to_json
+        end
+
+        before do
+          payload[:packages] = [
+            {
+              "packagingType": "Box"
+            }
+          ]
+        end
+
+        it 'raises an error' do
+          VCR.use_cassette('coll_8_api/operations/missing_package_weight_error') do
+            expect { subject.execute }.to raise_error(Coll8Api::Errors::ResponseError, error_response)
+          end
+        end
+      end
+
+      context 'with an invalid recipient postcode' do
+        let(:error_response) do
+          { "errors": [{ "message": "Recipient's Postcode is incorrect." }] }.to_json
+        end
+
+        before do
+          payload[:addresses][1][:postcode] = "DB2"
+        end
+
+        it 'raises an error' do
+          VCR.use_cassette('coll_8_api/operations/invalid_recipient_postcode_error') do
+            expect { subject.execute }.to raise_error(Coll8Api::Errors::ResponseError, error_response)
+          end
         end
       end
     end
