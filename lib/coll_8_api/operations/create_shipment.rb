@@ -1,16 +1,14 @@
 # frozen_string_literal: true
 #
-# POST {{ base_url }}/api/shipment/
+# POST {{ base_url }}/shipment
 #
 module Coll8Api
   module Operations
     class CreateShipment < Operation
-      SERVICE_NAME = 'shipment'
-
       private
 
-      def service
-        SERVICE_NAME
+      def endpoint
+        "#{base_url}/shipment"
       end
     end
   end

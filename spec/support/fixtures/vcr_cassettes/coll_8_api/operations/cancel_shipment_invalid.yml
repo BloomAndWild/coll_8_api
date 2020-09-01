@@ -1,8 +1,8 @@
 ---
 http_interactions:
 - request:
-    method: get
-    uri: https://ship-api-uat.drop2shop.ie/api//tracking/INVALID_TRACKING_NUMBER/scan
+    method: post
+    uri: https://ship-api-uat.drop2shop.ie/api/shipment/invalid_tracking_number/cancel
     body:
       encoding: UTF-8
       string: 'null'
@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v1.0.1
       Authorization:
-      - Bearer No authentication needed?
+      - Bearer <BEARER_TOKEN>
       Content-Type:
       - application/json
       Accept-Encoding:
@@ -19,15 +19,13 @@ http_interactions:
       - "*/*"
   response:
     status:
-      code: 200
-      message: OK
+      code: 404
+      message: Not Found
     headers:
       Content-Length:
-      - '132'
+      - '32'
       Content-Type:
       - application/json; charset=utf-8
-      Vary:
-      - Accept-Encoding
       Server:
       - Microsoft-IIS/10.0
       Request-Context:
@@ -35,11 +33,11 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Set-Cookie:
-      - ARRAffinity=46924d26a156f2513346647392bff9d626b628b61fe47171e284f9ef372c58f2;Path=/;HttpOnly;Domain=ship-api-uat.drop2shop.ie
+      - ARRAffinity=9360bb9059cba4f95253150408057590cb934bd7d9b6e4f77657b48444b6bd67;Path=/;HttpOnly;Domain=ship-api-uat.drop2shop.ie
       Date:
-      - Thu, 27 Aug 2020 14:40:00 GMT
+      - Tue, 01 Sep 2020 11:20:09 GMT
     body:
-      encoding: ASCII-8BIT
-      string: '{"data":[]}'
-  recorded_at: Thu, 27 Aug 2020 14:40:00 GMT
+      encoding: UTF-8
+      string: '{"message":"Shipment not found"}'
+  recorded_at: Tue, 01 Sep 2020 11:20:10 GMT
 recorded_with: VCR 6.0.0

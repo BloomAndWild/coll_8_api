@@ -5,20 +5,14 @@
 module Coll8Api
   module Operations
     class TrackDelivery < Operation
-      SERVICE_NAME = 'tracking'
-
       private
-
-      def service
-        SERVICE_NAME
-      end
 
       def http_method
         :get
       end
 
       def endpoint
-        "#{base_url}/#{service}/#{tracking_number}/scan"
+        "#{base_url}/tracking/#{tracking_number}/scan"
       end
 
       def tracking_number

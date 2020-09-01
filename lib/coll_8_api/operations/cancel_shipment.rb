@@ -5,16 +5,10 @@
 module Coll8Api
   module Operations
     class CancelShipment < Operation
-      SERVICE_NAME = 'shipment'
-
       private
 
-      def service
-        SERVICE_NAME
-      end
-
       def endpoint
-        "#{base_url}/#{service}/#{tracking_number}/cancel"
+        "#{base_url}/shipment/#{tracking_number}/cancel"
       end
 
       def tracking_number
