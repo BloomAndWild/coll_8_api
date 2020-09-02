@@ -16,7 +16,9 @@ module Coll8Api
       private
 
       def build_message
-        return status
+        return status unless body.is_a?(String)
+
+        body
       end
     end
   end

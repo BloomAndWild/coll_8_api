@@ -30,10 +30,6 @@ module Coll8Api
       :post
     end
 
-    def service
-      raise AbstractMethodError
-    end
-
     def handle_response_body(body)
       body
     end
@@ -43,7 +39,7 @@ module Coll8Api
     attr_reader :options
 
     def endpoint
-      "#{base_url}/#{service}"
+      raise AbstractMethodError
     end
 
     def json_payload

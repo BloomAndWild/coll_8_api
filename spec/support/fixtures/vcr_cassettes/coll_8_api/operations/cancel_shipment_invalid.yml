@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://ship-api-uat.drop2shop.ie/api/shipment/invalid_tracking_number/cancel
+    body:
+      encoding: UTF-8
+      string: 'null'
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Authorization:
+      - Bearer <BEARER_TOKEN>
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Length:
+      - '32'
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Microsoft-IIS/10.0
+      Request-Context:
+      - appId=cid-v1:85e0e9e3-0c9e-457e-a258-1b3cf8258e9a
+      X-Powered-By:
+      - ASP.NET
+      Set-Cookie:
+      - ARRAffinity=9360bb9059cba4f95253150408057590cb934bd7d9b6e4f77657b48444b6bd67;Path=/;HttpOnly;Domain=ship-api-uat.drop2shop.ie
+      Date:
+      - Tue, 01 Sep 2020 11:20:09 GMT
+    body:
+      encoding: UTF-8
+      string: '{"message":"Shipment not found"}'
+  recorded_at: Tue, 01 Sep 2020 11:20:10 GMT
+recorded_with: VCR 6.0.0
