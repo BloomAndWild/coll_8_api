@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://ship-api-uat.drop2shop.ie/api/tracking/BLWU110000000082/scan
+    body:
+      encoding: UTF-8
+      string: 'null'
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Authorization:
+      - Bearer <BEARER_TOKEN>
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '246'
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Server:
+      - Microsoft-IIS/10.0
+      Request-Context:
+      - appId=cid-v1:85e0e9e3-0c9e-457e-a258-1b3cf8258e9a
+      X-Powered-By:
+      - ASP.NET
+      Set-Cookie:
+      - ARRAffinity=9360bb9059cba4f95253150408057590cb934bd7d9b6e4f77657b48444b6bd67;Path=/;HttpOnly;Domain=ship-api-uat.drop2shop.ie
+      Date:
+      - Wed, 02 Sep 2020 08:13:21 GMT
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":[{"eventCode":"DAT","packageTrackingNumber":"BLWU110000000082001","eventDateTime":"2020-09-01T11:31:08.067","description":"Package
+        Created"}]}'
+  recorded_at: Wed, 02 Sep 2020 08:13:23 GMT
+recorded_with: VCR 6.0.0

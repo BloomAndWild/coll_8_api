@@ -62,7 +62,7 @@ RSpec.describe Coll8Api::Operations::CreateShipment do
       }
     end
 
-    let(:subject) { described_class.new(payload: payload) }
+    let(:subject) { described_class.new(payload: payload, token: ENV['COLL_8_TOKEN']) }
 
     context 'with valid request' do
       let(:expected_response) do

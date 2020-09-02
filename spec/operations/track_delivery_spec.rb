@@ -5,7 +5,7 @@ RSpec.describe Coll8Api::Operations::TrackDelivery do
   before { configure_client }
 
   describe '#execute' do
-    let(:subject) { described_class.new(tracking_number: tracking_number) }
+    let(:subject) { described_class.new(tracking_number: tracking_number, token: ENV['COLL_8_TOKEN']) }
 
     context 'with a valid tracking number' do
       let(:tracking_number) { "BLWU110000000082" }
