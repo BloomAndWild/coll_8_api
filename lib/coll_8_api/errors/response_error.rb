@@ -18,6 +18,9 @@ module Coll8Api
       def build_message
         return status unless body.is_a?(String)
 
+        json = JSON.parse(body)
+        json["message"] || json["errors"].to_json
+      rescue JSON::ParserError
         body
       end
     end
