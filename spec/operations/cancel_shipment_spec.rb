@@ -22,7 +22,7 @@ RSpec.describe Coll8Api::Operations::CancelShipment do
 
     context 'with invalid tracking number' do
       let(:tracking_number) { "invalid_tracking_number" }
-      let(:error_response) { {:message =>"Shipment not found"}.to_json }
+      let(:error_response) { "Shipment not found" }
 
       it 'raises an error' do
         VCR.use_cassette('coll_8_api/operations/cancel_shipment_invalid') do

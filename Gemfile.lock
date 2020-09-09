@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    coll_8_api (0.1.0)
+    coll_8_api (0.1.1)
       faraday
 
 GEM

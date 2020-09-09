@@ -83,7 +83,7 @@ RSpec.describe Coll8Api::Operations::CreateShipment do
     context 'errors' do
       context 'with an invalid account code' do
         let(:error_response) do
-          { :message => "You are Unauthorized to Create/Update Shipments for this Shipping Account" }.to_json
+          "You are Unauthorized to Create/Update Shipments for this Shipping Account"
         end
 
         before do
@@ -102,7 +102,7 @@ RSpec.describe Coll8Api::Operations::CreateShipment do
 
       context 'without a package weight' do
         let(:error_response) do
-          { "errors": [{ "property": "Packages[0].Weight", "message": "Weight should be greater than 0 kg" }] }.to_json
+          [{ "property": "Packages[0].Weight", "message": "Weight should be greater than 0 kg" }].to_json
         end
 
         before do
@@ -122,7 +122,7 @@ RSpec.describe Coll8Api::Operations::CreateShipment do
 
       context 'with an invalid recipient postcode' do
         let(:error_response) do
-          { "errors": [{ "message": "Recipient's Postcode is incorrect." }] }.to_json
+          [{ "message": "Recipient's Postcode is incorrect." }].to_json
         end
 
         before do
