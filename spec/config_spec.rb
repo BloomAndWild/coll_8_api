@@ -6,4 +6,5 @@ RSpec.describe Coll8Api::Config do
   it { is_expected.to respond_to(:client_secret, :client_secret=) }
   it { is_expected.to respond_to(:account, :account=) }
   it { is_expected.to respond_to(:logger, :logger=) }
+  it { is_expected.to respond_to(:token_endpoint, :token_endpoint=) }
 end
