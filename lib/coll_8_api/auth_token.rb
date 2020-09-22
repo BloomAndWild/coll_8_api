@@ -2,7 +2,6 @@
 
 module Coll8Api
   class AuthToken
-    TOKEN_ENDPOINT = 'https://coll-8-dev.eu.auth0.com/oauth/token'
     AUDIENCE = 'https://api.drop2shop.ie'
     GRANT_TYPE = 'client_credentials'
 
@@ -15,14 +14,16 @@ module Coll8Api
     def request_new_token
       http_client = Faraday.new
 
-      response = http_client.post(TOKEN_ENDPOINT) do |req|
+      response = http_client.post(token_endpoint) do |req|
         req.headers['Content-Type'] = 'application/json'
         req.body = payload.to_json
       end
 
       body = JSON.parse(response.body)
 
-      raise Coll8Api::Errors::ResponseError.new(payload: payload, body: body, status: response.status) unless response.success?
+      unless response.success?
+        raise Coll8Api::Errors::ResponseError.new(payload: payload, body: body, status: response.status)
+      end
 
       body
     end
@@ -34,6 +35,10 @@ module Coll8Api
         "audience": AUDIENCE,
         "grant_type": GRANT_TYPE
       }
+    end
+
+    def token_endpoint
+      config.token_endpoint
     end
 
     def config
