@@ -1,7 +1,15 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
 # Specify your gem's dependencies in coll_8_api.gemspec
 gemspec
 
-gem 'rake', '~> 12.0'
-gem 'rspec', '~> 3.0'
+group :development, :test do
+  gem "bundler"
+  gem "dotenv"
+  gem "pry"
+  gem "rake"
+  gem "rspec"
+  gem "rubocop"
+  gem "vcr"
+  gem "webmock"
+end
